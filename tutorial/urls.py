@@ -21,6 +21,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'files', views.FileViewSet)
+router.register(r'jobs', views.JobViewSet)
 
 
 urlpatterns = [
