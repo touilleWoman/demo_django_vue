@@ -1,4 +1,4 @@
-"""tutorial URL Configuration
+"""unifai_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from rest_framework import routers
-from tutorial.quickstart import views
+from unifai_demo.api import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViSet)
