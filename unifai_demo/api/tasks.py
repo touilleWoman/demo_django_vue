@@ -19,7 +19,7 @@ def del_words(job_id):
     new_data = ' '.join(new_l)
 
     job.status = job.DONE
-    job.file.data = new_data
+    job.result = new_data
     job.save()
 
         
