@@ -2,14 +2,14 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 from .models import File, Job
+from .tasks import del_words
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     """docstring for UserSerializer"""
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']        
-
+        fields = ['url', 'username', 'email', 'groups']
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -36,7 +36,11 @@ class JobSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'file', 'freq', 'status', 'result']
         read_only_fields = ['status', 'result']
 
-        
+    def create(self, validated_data):
+        ret = super().create(validated_data)
+        del_words.delay(ret.id)
+        return ret
+
 
 
 

@@ -31,32 +31,3 @@ class JobViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all()
     serializer_class = JobSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-
-
-    # def create(self, request, *args, **kwargs):
-    #     import pdb; pdb.set_trace()
-
-
-    #     serializer = self.get_serializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     self.perform_create(serializer)
-    #     headers = self.get_success_headers(serializer.data)
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-
-    # def perform_create(self, serializer):
-    #     serializer.save()
-
-# class FileUploadView(APIView):
-#     parser_class = (FileUploadParser,)
-
-#     def post(self, request, *args, **kwargs):
-        
-#         file_serializer = FileSerializer(data=request.data)
-
-#         if file_serializer.is_valid():
-#             file_serializer.save()
-#             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-#         else:
-#             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

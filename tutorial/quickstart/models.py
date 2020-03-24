@@ -23,3 +23,5 @@ class Job(models.Model):
             choices=STATUS_CHOICES,
             default=IDLE,
         )
+
+    
