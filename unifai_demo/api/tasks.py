@@ -11,15 +11,15 @@ def del_words(job_id):
     job = Job.objects.get(id=job_id)
     job.status = job.WORKING
     job.save()
-    data = job.file.data
+    # data = job.file.data
 
-    l = data.split()
-    count_dict = Counter(l)
-    new_l = [x for x in l if count_dict[x] <= job.freq]
-    new_data = ' '.join(new_l)
+    # l = data.split()
+    # count_dict = Counter(l)
+    # new_l = [x for x in l if count_dict[x] <= job.freq]
+    # new_data = ' '.join(new_l)
 
-    job.status = job.DONE
-    job.result = new_data
-    job.save()
+    # job.status = job.DONE
+    # job.result = new_data
+    # job.save()
 
         

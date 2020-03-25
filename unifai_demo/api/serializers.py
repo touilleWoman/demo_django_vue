@@ -8,11 +8,12 @@ class FileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = File
-        fields = ['url', 'data', 'name', 'size']
-        read_only_fields =['size']
+        # fields =  ['url', 'file', 'name']
+        fields = ['url', 'file', 'name', 'filesize']
+        read_only_fields =['filesize']
 
     def create(self, validated_data):
-        validated_data['size'] = len(validated_data['data'])
+        validated_data['filesize'] = validated_data['file'].size
         return super().create(validated_data)
 
 
