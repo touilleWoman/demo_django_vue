@@ -1,9 +1,10 @@
 from django.db import models
 
 class File(models.Model):
-    name = models.TextField(blank=False, null=False)
+    name = models.TextField(blank=False, null=True)
     file = models.FileField(upload_to='uploads/%Y/%m/%d')
     filesize = models.IntegerField(null=None)
+    content_type = models.TextField(blank=False, null=True)
 
 class Job(models.Model):
     IDLE = 'IDLE'
