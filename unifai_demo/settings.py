@@ -26,8 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # )
 SECRET_KEY = 'okyh!w*bks^l589noi-u7#aa0a5na6r(i&9(kxg1a!qhe)dado'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEBUG' in os.environ
-
+# DEBUG = 'DEBUG' in os.environ
+DEBUG = True
 # ALLOWED_HOSTS = ["unifai-demo.herokuapp.com",  '127.0.0.1']
 
 
