@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ["unifai-demo.herokuapp.com"]
+ALLOWED_HOSTS = ["unifai-demo.herokuapp.com",  '127.0.0.1']
 
 
 # Application definition

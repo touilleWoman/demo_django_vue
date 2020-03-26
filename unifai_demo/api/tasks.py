@@ -12,9 +12,7 @@ def del_words(job_id):
     job.status = job.WORKING
     job.save()
 
-    f = job.file.file
-    with f.open('rb') as c:
-        content = c.read().decode('utf-8')
+    content = job.file.content.decode('utf-8')
     l = content.split()
     count_dict = Counter(l)
     new_l = [x for x in l if count_dict[x] <= job.freq]
