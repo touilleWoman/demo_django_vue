@@ -20,15 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    'okyh!w*bks^l589noi-u7#aa0a5na6r(i&9(kxg1a!qhe)dado'
-)
-
+# SECRET_KEY = os.environ.get(
+#     'SECRET_KEY',
+#     'okyh!w*bks^l589noi-u7#aa0a5na6r(i&9(kxg1a!qhe)dado'
+# )
+SECRET_KEY = 'okyh!w*bks^l589noi-u7#aa0a5na6r(i&9(kxg1a!qhe)dado'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ["unifai-demo.herokuapp.com",  '127.0.0.1']
+# ALLOWED_HOSTS = ["unifai-demo.herokuapp.com",  '127.0.0.1']
 
 
 # Application definition
@@ -140,3 +140,9 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Paris'
 
+# Configure Django App for Heroku.
+try:
+    import django_heroku
+    django_heroku.settings(locals())
+except ImportError:
+    pass
