@@ -11,8 +11,10 @@ def del_words(job_id):
     job = Job.objects.get(id=job_id)
     job.status = job.WORKING
     job.save()
-
-    content = job.file.content.decode('utf-8')
+    content = job.file.content
+    if isinstance(content, memoryview):
+        content = content.tobytes()
+    content = content.decode('utf-8')
     l = content.split()
     count_dict = Counter(l)
     new_l = [x for x in l if count_dict[x] <= job.freq]
