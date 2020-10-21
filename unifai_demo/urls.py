@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import path, include
 from rest_framework import routers
 from unifai_demo.api import views
+from django.views.generic.base import TemplateView
 
 router = routers.DefaultRouter()
 router.register(r'files', views.FileViewSet)
@@ -23,6 +24,8 @@ router.register(r'jobs', views.JobViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
+    path('', TemplateView.as_view(template_name="index.html")),
+    path('api', include(router.urls)),
+
+    # path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]

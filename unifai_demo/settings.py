@@ -59,7 +59,8 @@ ROOT_URLCONF = 'unifai_demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': ['front/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
